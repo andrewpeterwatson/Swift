@@ -70,15 +70,22 @@ function keyUpHandler(e) {
 function update() {
   if (spacePressed) {
   player.shoot();
-  } else if (leftPressed) {
-      player.x -= 5;
-    } else if (rightPressed) {
-      player.x += 5;
-    }
+}
+  if (leftPressed) {
+    player.x -= 5;
+  }
 
-    playerBullets.forEach(function(bullet) {
-    bullet.update();
-  });
+  if (rightPressed) {
+    player.x += 5;
+  }
+
+  playerBullets.forEach(function(bullet) {
+  bullet.update();
+});
+
+playerBullets = playerBullets.filter(function(bullet) {
+  return bullet.active;
+});
 }
 var playerBullets = [];
 
@@ -110,8 +117,10 @@ function Bullet(I) {
 
   return I;
 }
+
 player.shoot = function() {
   var bulletPosition = this.midpoint();
+
   playerBullets.push(Bullet({
     speed: 5,
     x: bulletPosition.x,

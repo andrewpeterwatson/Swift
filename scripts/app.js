@@ -1,11 +1,13 @@
-var CANVAS_WIDTH = 480;
-var CANVAS_HEIGHT = 320;
+// var 1100 = 480;
+// var 750 = 320;
+//
+// var canvasElement = $("<canvas width='" + 1100 +
+//                       "' height='" + 750 + "'></canvas>");
+// var canvas = canvasElement.get(0).getContext("2d");
+// canvasElement.appendTo('body');
 
-var canvasElement = $("<canvas width='" + CANVAS_WIDTH +
-                      "' height='" + CANVAS_HEIGHT + "'></canvas>");
-var canvas = canvasElement.get(0).getContext("2d");
-canvasElement.appendTo('body');
-
+var ctx = document.getElementById("canvasPlayer");
+var canvas = ctx.getContext("2d");
 var FPS = 30;
 setInterval(function() {
   update();
@@ -35,7 +37,7 @@ var player = {
 };
 
 function draw() {
-  canvas.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+  canvas.clearRect(0, 0, 1100, 750);
   player.draw();
   playerBullets.forEach(function(bullet) {
   bullet.draw();
@@ -92,8 +94,8 @@ function Bullet(I) {
   I.color = "black";
 
   I.inBounds = function() {
-    return I.x >= 0 && I.x <= CANVAS_WIDTH &&
-      I.y >= 0 && I.y <= CANVAS_HEIGHT;
+    return I.x >= 0 && I.x <= 1100 &&
+      I.y >= 0 && I.y <= 750;
   };
 
   I.draw = function() {

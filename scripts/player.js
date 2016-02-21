@@ -10,8 +10,8 @@ var imgDrops;
 var ballX = 0;
 var ballY = 0;
 var fallingDrops = [];
-var fate = parseInt(prompt('Pick your fate (pick a number between 1 and 100)'));
-var noOfDrops = fate;
+// var fate = -1;
+var noOfDrops;
 
 
 
@@ -56,7 +56,7 @@ function setup() {
 
 
 
-setup();
+// setup();
 
 
 var FPS = 30;

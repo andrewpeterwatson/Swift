@@ -1,19 +1,41 @@
-* {
+/** {
   padding: 0;
   margin: 0;
 
-}
+}*/
 
 canvas {
   display: block;
   margin: 0 auto;
   position: absolute;
+  padding: 0;
 
 }
-img {
-  visibility: hidden;
-}
-p {
+
+
+/*div {
+  height: 300px;
+  width: 400px;
+  background-color: white;
   position: absolute;
-  font-size: 90px;
+  margin-top:10%;
+  margin-left:10%;
+  border: 2px solid black;
+}*/
+.info {
+  height: 300px;
+  width: 400px;
+  background-color: #363636;
+  position: absolute;
+  margin-top:10%;
+  margin-left:-600px;
+  border: 2px solid black;
+  color: white;
+  font-size: 20px;
+
+
+}
+
+legend.button {
+  margin-left: 20px;
 }

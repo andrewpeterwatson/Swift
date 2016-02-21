@@ -1,13 +1,63 @@
-// var CANVAS_WIDTH = 480;
-// var CANVAS_HEIGHT = 320;
-//
-// var canvasElement = $("<canvas width='" + CANVAS_WIDTH +
-//                       "' height='" + CANVAS_HEIGHT + "'></canvas>");
-// var canvas = canvasElement.get(0).getContext("2d");
-// canvasElement.appendTo('body');
+var canvas4 = document.getElementById("fireballs");
+var ctx4 = canvas4.getContext("2d");
 
 var ctx = document.getElementById("canvasPlayer");
 var canvas = ctx.getContext("2d");
+
+
+var imgBg;
+var imgDrops;
+var ballX = 0;
+var ballY = 0;
+var fallingDrops = [];
+var fate = parseInt(prompt('Pick your fate (pick a number between 1 and 100)'));
+var noOfDrops = fate;
+
+
+
+
+function drawBallz() {
+  ctx4.clearRect(0, 0, canvas4.width, canvas4.height);
+
+
+    for (var i=0; i< noOfDrops; i++)
+    {
+    ctx4.drawImage (fallingDrops[i].image, fallingDrops[i].ballX, fallingDrops[i].ballY, 80, 80); //The rain drop
+
+    fallingDrops[i].ballY += fallingDrops[i].speed; //Set the falling speed
+    if (fallingDrops[i].ballY > 750) {  //Repeat the raindrop when it falls out of view
+    fallingDrops[i].ballY = -25 //Account for the image size
+    fallingDrops[i].ballX = Math.random() * 1300;    //Make it appear randomly along the width
+    }
+
+    }
+}
+
+function setup() {
+
+  if (canvas4.getContext) {
+          ctx4 = canvas4.getContext('2d');
+
+  setInterval(drawBallz, 36);
+  for (var i = 0; i < noOfDrops; i++) {
+      var fallingDr = new Object();
+      fallingDr["image"] =  new Image();
+  fallingDr.image.src = 'http://vignette4.wikia.nocookie.net/mario/images/f/fa/494px-Fireball_Artwork_-_Super_Mario_3D_World.png/revision/latest?cb=20131129222802';
+
+      fallingDr["ballX"] = Math.random() * 1300;
+      fallingDr["ballY"] = -1000;
+      fallingDr["speed"] = Math.random() * 9;
+      fallingDrops.push(fallingDr);
+      }
+
+  }
+}
+
+
+
+
+setup();
+
 
 var FPS = 30;
 setInterval(function() {

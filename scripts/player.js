@@ -120,13 +120,16 @@ function keyUpHandler(e) {
         leftPressed = false;
     } else if(e.keyCode === 32) {
       spacePressed = false;
+
     }
 
 }
-
+var pool = 0;
 function update() {
   if (spacePressed) {
-  player.shoot();
+    if (pool < 3) {
+    player.shoot();
+    }
   } else if (leftPressed) {
       player.x -= 5;
     } else if (rightPressed) {
@@ -138,7 +141,6 @@ function update() {
   });
 }
 var playerBullets = [];
-
 function Bullet(I) {
   I.active = true;
   I.xVelocity = 0;
@@ -146,7 +148,6 @@ function Bullet(I) {
   I.width = 3;
   I.height = 3;
   I.color = "black";
-
   I.inBounds = function() {
     return I.x >= 0 && I.x <= 1000 &&
       I.y >= 0 && I.y <= 750;
@@ -161,6 +162,11 @@ function Bullet(I) {
     I.x += I.xVelocity;
     I.y += I.yVelocity;
     I.active = I.active && I.inBounds();
+    if (!I.active) {
+      pool = 0;
+    } else {
+      pool++;
+    }
   };
 
   return I;
@@ -168,7 +174,7 @@ function Bullet(I) {
 player.shoot = function() {
   var bulletPosition = this.midpoint();
   playerBullets.push(Bullet({
-    speed: 5,
+    speed: 10,
     x: bulletPosition.x,
     y: bulletPosition.y
   }));

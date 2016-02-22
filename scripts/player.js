@@ -127,7 +127,7 @@ function keyUpHandler(e) {
 var pool = 0;
 function update() {
   if (spacePressed) {
-    if (pool < 3) {
+    if (pool < 5) {
     player.shoot();
     }
   } else if (leftPressed) {
@@ -164,6 +164,7 @@ function Bullet(I) {
     I.active = I.active && I.inBounds();
     if (!I.active) {
       pool = 0;
+      playerBullets = [];
     } else {
       pool++;
     }
@@ -200,10 +201,8 @@ player.midpoint = function() {
   function checkCollisions() {
     // for (var i = 0; i < playerBullets.length; i++) {
     //     for (var i = 0; i < fallingDrops.length; i++) {
-    //       if (player.x < fallingDrops[i].ballX + fallingDrops[i].width  && player.x + 3  > fallingDrops[i].ballX &&
-    //      		playerBullets[i].y < fallingDrops[i].ballY + fallingDrops[i].height && playerBullets[i].y + playerBullets[i].height > fallingDrops[i].ballY){
+    //       if (playerBullets.y < fallingDrops.y + fallingDrops.height && playerBullets.y + playerBullets.height > fallingDrops.y){
     //           console.log("lava dead");
-    //         // Bullet.active = false;
     //     };
     //   };
     // };

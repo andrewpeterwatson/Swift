@@ -5,14 +5,15 @@
     <title>swift</title>
     <link rel="stylesheet" href="styles/style.css" media="screen" title="no title" charset="utf-8">
   </head>
-  <body>
+  <body onkeyup="restoreImage()">
     <canvas id="myCanvas3" width="800" height='600'></canvas>
+    <canvas id="eruption" width="800" height="600"></canvas>
     <canvas id="myCanvas2" width="800" height='600'></canvas>
     <canvas id="fireballs" width="800" height='600'></canvas>
     <canvas id="myCanvas1" width="800" height='600'></canvas>
     <canvas id="canvasPlayer" width="800" height='600'></canvas>
     <div id='gameOverScreen' class=''>
-      
+
     </div>
 
 		<div class = 'info'id='welcome'>
@@ -33,9 +34,16 @@
 						<button class='button' type = 'submit' id='hard'>Hard</button>
 				</fieldset>
 		</div>
+    <section id ="logo">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</section>
+    <section id ="input">
+      <img id="arrows" src="media/testImg/up.jpg">
+      <img id="fire" src="media/testImg/bomb.jpg">
+    </section>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
     <script src="scripts/world.js"></script>
     <script src="scripts/player.js"></script>
 		<script src="scripts/init.js"></script>
+    <script src="scripts/instruction.js"></script>
+    <script src="scripts/explodingBallz.js"></script>
   </body>
 </html>

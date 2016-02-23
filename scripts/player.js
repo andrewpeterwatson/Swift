@@ -136,6 +136,7 @@ function update() {
     } else if (rightPressed) {
       player.x += 5;
     }
+    score ++;
     checkCollisions();
     playerBullets.forEach(function(bullet) {
     bullet.update();

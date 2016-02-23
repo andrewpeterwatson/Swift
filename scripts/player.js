@@ -4,7 +4,8 @@ var ctx4 = canvas4.getContext("2d");
 var ctx = document.getElementById("canvasPlayer");
 var canvas = ctx.getContext("2d");
 
-
+var heroHealth = 50;
+var score = 0;
 var imgBg;
 var imgDrops;
 var ballHeight = 80;
@@ -12,8 +13,8 @@ var ballWidth = 80;
 var ballX = 0;
 var ballY = 0;
 var fallingDrops = [];
-var fate = parseInt(prompt('Pick your fate (pick a number between 1 and 100)'));
-var noOfDrops = fate;
+// var fate = -1;
+var noOfDrops;
 
 
 
@@ -43,7 +44,7 @@ function setup() {
   function FireBall() {
     this.height = ballHeight;
     this.width = ballWidth;
-    this.speed = Math.random() * 9;
+    this.speed = Math.random() * 4;
     this.image = new Image();
     this.image.src = 'http://vignette4.wikia.nocookie.net/mario/images/f/fa/494px-Fireball_Artwork_-_Super_Mario_3D_World.png/revision/latest?cb=20131129222802';
   }
@@ -188,6 +189,19 @@ player.midpoint = function() {
   };
 };
 
+function gameOver() {
+  var gameOv = document.getElementById('gameOverScreen')
+  var endMessage = document.createElement('p')
+  var scoreNum = document.createElement('p')
+  gameOv.className = 'gameOverScreenBlack';
+  scoreNum.className = 'overMessage';
+  scoreNum.innerHTML = 'SCORE: ' + score;
+  endMessage.className = 'overMessage';
+  endMessage.innerHTML = 'GAME OVER';
+  gameOv.appendChild(endMessage);
+  gameOv.appendChild(scoreNum);
+
+};
 
 
   playerBullets = playerBullets.filter(function(bullet) {
@@ -210,7 +224,12 @@ player.midpoint = function() {
       if (fallingDrops[i].ballX < player.x + player.width  && fallingDrops[i].ballX + fallingDrops[i].width  > player.x &&
     		fallingDrops[i].ballY < player.y + player.height && fallingDrops[i].ballY + fallingDrops[i].height > player.y) {
         console.log("player died");
+        heroHealth -= 0.5;
+        }
+      }
+      if (heroHealth === 0) {
+        gameOver();
+        noOfDrops = 0;
         // player.explode();
       }
     }
-  }

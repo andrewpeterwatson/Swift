@@ -225,10 +225,11 @@ function gameOver() {
       if (fallingDrops[i].ballX < player.x + player.width  && fallingDrops[i].ballX + fallingDrops[i].width  > player.x &&
     		fallingDrops[i].ballY < player.y + player.height && fallingDrops[i].ballY + fallingDrops[i].height > player.y) {
         console.log("player died");
-        heroHealth -= 0.5;
+        heroHealth -= 1;
         }
       }
-      if (heroHealth === 0) {
+      if (heroHealth < 0) {
+        fallingDrops = null;
         gameOver();
         noOfDrops = 0;
         // player.explode();

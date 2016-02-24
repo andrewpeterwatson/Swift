@@ -164,7 +164,7 @@ function keyUpHandler(event) {
     }
 }
 
-setInterval(drawAll, 2);
+setInterval(drawAll, 26);
 // while (timer < 10) {
 //   setupCircles();
 //   timer++;

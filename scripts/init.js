@@ -22,6 +22,8 @@ function easyBtnFunc() {
   // eventRemover();
   outMovement();
   noOfDrops = 25;
+  start = false;
+  starting();
   setTimeout(setup, 3000);
   easyEl.disabled = true;
 }
@@ -29,6 +31,8 @@ function medBtnFunc() {
   event.preventDefault();
   // eventRemover();
   outMovement();
+  start = false;
+  starting();
   noOfDrops = 50;
   setTimeout(setup, 3000);
   mediumEl.disabled = true;
@@ -38,6 +42,8 @@ function hardBtnFunc() {
   event.preventDefault();
   // eventRemover();
   outMovement();
+  start = false;
+  starting();
   noOfDrops = 100;
   setTimeout(setup, 3000);
   hardEl.disabled = true;

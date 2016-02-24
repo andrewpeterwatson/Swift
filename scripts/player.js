@@ -4,7 +4,7 @@ var ctx4 = canvas4.getContext("2d");
 var ctx = document.getElementById("canvasPlayer");
 var canvas = ctx.getContext("2d");
 
-var heroHealth = 50;
+var heroHealth = 30;
 var score = 0;
 var imgBg;
 var imgDrops;
@@ -63,12 +63,17 @@ function setup() {
 }
 setup();
 
+var start = true;
 
 var FPS = 30;
-setInterval(function() {
-  update();
-  draw();
-}, 1000/FPS);
+
+function starting() {
+    setInterval(function() {
+      update();
+      draw();
+    }, 1000/FPS);
+
+};
 
 function update() {}
 function draw() {}
@@ -225,10 +230,11 @@ function gameOver() {
       if (fallingDrops[i].ballX < player.x + player.width  && fallingDrops[i].ballX + fallingDrops[i].width  > player.x &&
     		fallingDrops[i].ballY < player.y + player.height && fallingDrops[i].ballY + fallingDrops[i].height > player.y) {
         console.log("player died");
-        heroHealth -= 0.5;
+        heroHealth -= 1;
         }
       }
-      if (heroHealth === 0) {
+      if (heroHealth < 0) {
+        fallingDrops = null;
         gameOver();
         noOfDrops = 0;
         // player.explode();

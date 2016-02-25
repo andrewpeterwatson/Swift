@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- saved from url=(0079)file:///Users/andrewwatson/CodeFellows/sourceFiles/201/week7-8/swift/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Pompeii</title>
+    <link rel="stylesheet" href="./Pompeii_files/style.css" media="screen" title="no title" charset="utf-8">
+  </head>
+  <body onkeyup="restoreImage()">
+    <canvas id="myCanvas3" width="800" height="600"></canvas>
+    <canvas id="eruption" width="800" height="600"></canvas>
+    <canvas id="myCanvas2" width="800" height="600"></canvas>
+    <canvas id="fireballs" width="800" height="600"></canvas>
+    <canvas id="myCanvas1" width="800" height="600"></canvas>
+    <canvas id="canvasPlayer" width="800" height="600"></canvas>
+    <div id="gameOverScreen" class="gameOverScreenBlack">
+
+    <p class="overMessage">GAME OVER</p><p class="overMessage">SCORE: 297</p></div>
+
+		<div class="info" id="welcome" style="left: -1600px;">
+			<p>
+				Pompeii
+			</p>
+			<form id="userInfo">
+				<fieldset>
+					<legend>User Name</legend>
+					<label class="inputFields" for="userName"> Initials
+						<input type="text" name="name" size="30" maxlength="3">
+					</label>
+				</fieldset>
+				<fieldset>
+					<legend>Pick your difficulty</legend>
+						<button class="button" type="submit" id="easy" disabled="">Easy</button>
+						<button class="button" type="submit" id="medium">Medium</button>
+						<button class="button" type="submit" id="hard">Hard</button>
+				</fieldset>
+		</form></div>
+    <section id="logo">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</section>
+    <section id="input">
+      <img id="arrows" src="./Pompeii_files/up.jpg">
+      <img id="fire" src="./Pompeii_files/bomb.jpg">
+    </section>
+		<script src="./Pompeii_files/TweenMax.min.js"></script>
+    <script src="./Pompeii_files/world.js"></script>
+    <script src="./Pompeii_files/player.js"></script>
+		<script src="./Pompeii_files/init.js"></script>
+    <script src="./Pompeii_files/instruction.js"></script>
+    <script src="./Pompeii_files/explodingBallz.js"></script>
+  
+
+</body></html>

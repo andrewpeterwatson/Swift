@@ -6,15 +6,16 @@ var canvas = ctx.getContext("2d");
 
 var heroHealth = 30;
 var score = 0;
-// var imgBg;
-// var imgDrops;
+var imgBg;
+var imgDrops;
 var ballHeight = 80;
 var ballWidth = 80;
 var ballX = 0;
 var ballY = 0;
 var fallingDrops = [];
+// var fate = -1;
 var noOfDrops;
-var submitScore = document.getElementById('submitScore');
+
 
 
 
@@ -45,7 +46,7 @@ function setup() {
     this.width = ballWidth;
     this.speed = Math.random() * 4;
     this.image = new Image();
-    this.image.src = 'http://m.img.brothersoft.com/android/fa/fa5e68c09084b2ebd7297d61df122bc9_icon.png';
+    this.image.src = 'http://vignette4.wikia.nocookie.net/mario/images/f/fa/494px-Fireball_Artwork_-_Super_Mario_3D_World.png/revision/latest?cb=20131129222802';
   }
 
   for (var i = 0; i < noOfDrops; i++) {
@@ -85,9 +86,9 @@ function update() {
   textY += 1;
 }
 var player = {
-  color: "pink",
-  x: 400,
-  y: 435,
+  color: "black",
+  x: 220,
+  y: 270,
   width: 10,
   height: 10,
   draw: function() {
@@ -134,14 +135,14 @@ function update() {
   if (spacePressed) {
     if (pool < 5) {
     player.shoot();
+    console.log(playerBullets[0].active);
     }
-  } else if (leftPressed && player.x > 75 ) {
-      player.x -= 9;
-    } else if (rightPressed && player.x < 758) {
-      player.x += 9;
+  } else if (leftPressed) {
+      player.x -= 5;
+    } else if (rightPressed) {
+      player.x += 5;
     }
     score ++;
-    checkBulletCollision();
     checkCollisions();
     playerBullets.forEach(function(bullet) {
     bullet.update();
@@ -172,6 +173,7 @@ function Bullet(I) {
     if (!I.active) {
       pool = 0;
       playerBullets = [];
+      console.log(pool, playerBullets);
     } else {
       pool++;
     }
@@ -194,38 +196,18 @@ player.midpoint = function() {
     y: this.y + this.height/2
   };
 };
-function inMovementGO() {
-  TweenMax.to('.gameOvers', 2, {left: 800})
-};
-function outMovementGO() {
-  TweenMax.to('.gameOvers', 4, {left:-1600});
-
-}
-
-function gameOverBtn() {
-  event.preventDefault();
-  score = 0;
-  heroHealth = 30;
-  fallingDrops = [];
-  outMovementGO();
-  inMovement();
-  // starting();
-
-
-}
-submitScore.addEventListener('click', gameOverBtn);
-
-
 
 function gameOver() {
-  var gameOv = document.getElementById('score')
+  var gameOv = document.getElementById('gameOverScreen')
   var endMessage = document.createElement('p')
   var scoreNum = document.createElement('p')
-  gameOv.innerHTML = 'SCORE: ' + score;
-  inMovementGO();
-  easyEl.disabled = false;
-  mediumEl.disabled = false;
-  hardEl.disabled = false;
+  gameOv.className = 'gameOverScreenBlack';
+  scoreNum.className = 'overMessage';
+  scoreNum.innerHTML = 'SCORE: ' + score;
+  endMessage.className = 'overMessage';
+  endMessage.innerHTML = 'GAME OVER';
+  gameOv.appendChild(endMessage);
+  gameOv.appendChild(scoreNum);
 
 };
 
@@ -233,24 +215,23 @@ function gameOver() {
   playerBullets = playerBullets.filter(function(bullet) {
     return bullet.active;
   });
-  function checkBulletCollision() {
+
   // function collisionDetection(object1,obeject2) {
   //   return (object1.x < object2.x + object2.width  && object1.x + object1.width  > object2.x &&
 	// 	object1.y < object2.y + object2.height && object1.y + object1.height > object2.y)
   // }
-    for (var i = 0; i < playerBullets.length; i++) {
-        for (var i = 0; i < fallingDrops.length; i++) {
-          if (playerBullets[i].y < fallingDrops[i].y + fallingDrops[i].height && playerBullets[i].y + playerBullets[i].height > fallingDrops[i].y)
-            {
-              console.log("lava dead");
-        };
-      };
-    };
-  }
-    function checkCollisions() {
+  function checkCollisions() {
+    // for (var i = 0; i < playerBullets.length; i++) {
+    //     for (var i = 0; i < fallingDrops.length; i++) {
+    //       if (playerBullets[i].x < fallingDrops[i].x + fallingDrops[i].width  && playerBullets[i].x + playerBullets[i].width  > fallingDrops[i].x &&
+    //     		playerBullets[i].y < fallingDrops[i].y + fallingDrops[i].height && playerBullets[i].y + playerBullets[i].height > fallingDrops[i].y)
+    //         {
+    //           console.log("lava dead");
+    //     };
+    //   };
+    // };
     for (var i = 0; i < fallingDrops.length; i++) {
-      if (fallingDrops[i].ballX < player.x + player.width  && fallingDrops[i].ballX + fallingDrops[i].width  > player.x &&
-    		fallingDrops[i].ballY < player.y + player.height && fallingDrops[i].ballY + fallingDrops[i].height > player.y) {
+      if (fallingDrops[i].ballY < player.y + player.height && fallingDrops[i].ballY + fallingDrops[i].height > player.y) {
         console.log("player died");
         heroHealth -= 1;
         }

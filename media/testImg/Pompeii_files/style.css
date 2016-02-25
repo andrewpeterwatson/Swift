@@ -1,0 +1,75 @@
+/** {
+  padding: 0;
+  margin: 0;
+}*/
+
+canvas {
+  display: block;
+  margin: 0 auto;
+  position: absolute;
+  padding: 0;
+
+}
+/*img {
+  visibility: hidden;
+}*/
+/*p {
+  position: absolute;
+  font-size: 90px;
+}*/
+.info {
+  height: 300px;
+  width: 400px;
+  background-color: #363636;
+  position: absolute;
+  margin-top:10%;
+  margin-left:-600px;
+  border: 2px solid black;
+  color: white;
+  font-size: 20px;
+
+
+}
+
+legend.button {
+  margin-left: 20px;
+}
+
+.gameOverScreen {
+  height: 600px;
+  width: 800px;
+  background-color: black;
+  position: absolute;
+  opacity: 0;
+}
+.gameOverScreenBlack {
+  height: 600px;
+  width: 800px;
+  background-color: black;
+  position: absolute;
+  opacity: 1;
+}
+.overMessage {
+  color: white;
+  font-size: 90px;
+}
+
+#logo {
+  position: absolute;
+  left: 815px;
+  width: 300px;
+  border: 3px solid black;
+  padding: 10px;
+}
+
+#input {
+  position: absolute;
+  top: 300px;
+  left: 815px;
+  width: 300px;
+  border: 3px solid black;
+  padding: 10px;
+}
+#fire {
+  float: right;
+}

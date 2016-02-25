@@ -10,6 +10,7 @@ function outMovement() {
 
 }
 
+
 setTimeout(inMovement, 0);
 // var eventRemover = function() {
 //     easyEl.removeEventListener('click', easyBtnFunc);

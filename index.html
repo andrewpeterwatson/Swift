@@ -6,34 +6,47 @@
     <link rel="stylesheet" href="styles/style.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body onkeyup="restoreImage()">
-    <canvas id="myCanvas3" width="800" height='600'></canvas>
-    <canvas id="eruption" width="800" height="600"></canvas>
-    <canvas id="myCanvas2" width="800" height='600'></canvas>
-    <canvas id="fireballs" width="800" height='600'></canvas>
-    <canvas id="myCanvas1" width="800" height='600'></canvas>
-    <canvas id="canvasPlayer" width="800" height='600'></canvas>
-    <div id='gameOverScreen' class=''>
+    <canvas class =''id="myCanvas3" width="800" height='600'></canvas>
+    <canvas class =''id="eruption" width="800" height="600"></canvas>
+    <canvas class =''id="myCanvas2" width="800" height='600'></canvas>
+    <canvas class =''id="myCanvas1" width="800" height='600'></canvas>
+    <canvas class =''id="myCanvas6" width="800" height='600'></canvas>
+    <canvas class =''id="fireballs" width="800" height='600'></canvas>
+    <canvas class =''id="canvasPlayer" width="800" height='600'></canvas>
+    <canvas class =''id="myCanvas5" width="800" height='600'></canvas>
+    <div id='gameOvers' class = 'gameOvers'>
+      <p>
+        GAME OVER
+      </p>
+      <p id='score'>
+
+      </p>
+      <fieldset>
+        <legend>User Name</legend>
+        <label class = 'inputFields' for="userName"> Initials
+          <input type='text' name = 'name' size = 30 maxlength="3">
+        </label>
+        <button type="button" name="button" id= 'submitScore'>Play Again</button>
+      </fieldset>
 
     </div>
 
-		<div class = 'info'id='welcome'>
-			<p>
-				Pompeii
-			</p>
-			<form id='userInfo'>
-				<fieldset>
-					<legend>User Name</legend>
-					<label class = 'inputFields' for="userName"> Initials
-						<input type='text' name = 'name' size = 30 maxlength="3">
-					</label>
-				</fieldset>
-				<fieldset>
-					<legend>Pick your difficulty</legend>
-						<button class='button' type = 'submit' id='easy'>Easy</button>
-						<button class='button' type = 'submit' id='medium'>Medium</button>
-						<button class='button' type = 'submit' id='hard'>Hard</button>
-				</fieldset>
-		</div>
+    <div class = 'info'id='welcome'>
+      <p>
+        Pompeii
+      </p>
+      <form id='userInfo'>
+        <fieldset>
+          <legend>Pick your difficulty</legend>
+          <button class='button' type = 'submit' id='easy'>Easy</button>
+          <button class='button' type = 'submit' id='medium'>Medium</button>
+          <button class='button' type = 'submit' id='hard'>Hard</button>
+        </fieldset>
+      </div>
+
+
+
+
     <section id ="logo">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</section>
     <section id ="input">
       <img id="arrows" src="media/testImg/up.jpg">

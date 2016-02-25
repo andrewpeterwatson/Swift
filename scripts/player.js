@@ -6,8 +6,8 @@ var canvas = ctx.getContext("2d");
 
 var heroHealth = 30;
 var score = 0;
-var imgBg;
-var imgDrops;
+// var imgBg;
+// var imgDrops;
 var ballHeight = 80;
 var ballWidth = 80;
 var ballX = 0;
@@ -15,7 +15,7 @@ var ballY = 0;
 var fallingDrops = [];
 // var fate = -1;
 var noOfDrops;
-
+var submitScore = document.getElementById('submitScore');
 
 
 
@@ -46,7 +46,7 @@ function setup() {
     this.width = ballWidth;
     this.speed = Math.random() * 4;
     this.image = new Image();
-    this.image.src = 'http://vignette4.wikia.nocookie.net/mario/images/f/fa/494px-Fireball_Artwork_-_Super_Mario_3D_World.png/revision/latest?cb=20131129222802';
+    this.image.src = 'http://m.img.brothersoft.com/android/fa/fa5e68c09084b2ebd7297d61df122bc9_icon.png';
   }
 
   for (var i = 0; i < noOfDrops; i++) {
@@ -86,9 +86,9 @@ function update() {
   textY += 1;
 }
 var player = {
-  color: "black",
-  x: 220,
-  y: 270,
+  color: "pink",
+  x: 400,
+  y: 435,
   width: 10,
   height: 10,
   draw: function() {
@@ -136,10 +136,10 @@ function update() {
     if (pool < 5) {
     player.shoot();
     }
-  } else if (leftPressed) {
-      player.x -= 5;
-    } else if (rightPressed) {
-      player.x += 5;
+  } else if (leftPressed && player.x > 75 ) {
+      player.x -= 9;
+    } else if (rightPressed && player.x < 758) {
+      player.x += 9;
     }
     score ++;
     checkCollisions();
@@ -194,18 +194,38 @@ player.midpoint = function() {
     y: this.y + this.height/2
   };
 };
+function inMovementGO() {
+  TweenMax.to('.gameOvers', 2, {left: 800})
+};
+function outMovementGO() {
+  TweenMax.to('.gameOvers', 4, {left:-1600});
+
+}
+
+function gameOverBtn() {
+  event.preventDefault();
+  score = 0;
+  heroHealth = 30;
+  fallingDrops = [];
+  outMovementGO();
+  inMovement();
+  // starting();
+
+
+}
+submitScore.addEventListener('click', gameOverBtn);
+
+
 
 function gameOver() {
-  var gameOv = document.getElementById('gameOverScreen')
+  var gameOv = document.getElementById('score')
   var endMessage = document.createElement('p')
   var scoreNum = document.createElement('p')
-  gameOv.className = 'gameOverScreenBlack';
-  scoreNum.className = 'overMessage';
-  scoreNum.innerHTML = 'SCORE: ' + score;
-  endMessage.className = 'overMessage';
-  endMessage.innerHTML = 'GAME OVER';
-  gameOv.appendChild(endMessage);
-  gameOv.appendChild(scoreNum);
+  gameOv.innerHTML = 'SCORE: ' + score;
+  inMovementGO();
+  easyEl.disabled = false;
+  mediumEl.disabled = false;
+  hardEl.disabled = false;
 
 };
 

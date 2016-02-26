@@ -57,7 +57,7 @@ function draw1() {
     ctx1.clearRect(0, 0, canvas1.width, canvas1.height);
     drawBackgroundImgOne();
 
-  if(rightPressed && imgOne < 80) {
+  if(rightPressed && imgOne < 100) {
       imgOne += 1.75;
   }
   else if(leftPressed && imgOne > -80) {
@@ -69,11 +69,11 @@ function draw2() {
   ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
   drawBackgroundImgTwo();
 
-  if(rightPressed && imgTwo < 60) {
-    imgTwo += 1.25;
-  }
-  else if(leftPressed && imgTwo > -60) {
+  if(rightPressed && imgTwo > -60) {
     imgTwo -= 1.25;
+  }
+  else if(leftPressed && imgTwo < 60) {
+    imgTwo += 1.25;
   };
 
 };

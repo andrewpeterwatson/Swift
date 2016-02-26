@@ -13,6 +13,9 @@ var ctx6 = canvas6.getContext("2d");
 var canvas5 = document.getElementById("myCanvas5");
 var ctx5 = canvas5.getContext("2d");
 
+var canvas7 = document.getElementById("myCanvas7");
+var ctx7 = canvas7.getContext("2d");
+
 // var canvas6 = document.getElementById("fireballs");
 // var ctx6 = canvas6.getContext("2d");
 
@@ -26,6 +29,8 @@ var img4 = document.createElement('img');
 img4.src='media/img/POMgroundPlane.png'
 var img5 = document.createElement('img');
 img5.src='media/img/POMfgColumns.png'
+var img7 = document.createElement('img');
+img7.src='media/img/POMframe.png'
 
 var mountainHeight = 600;
 var groundHeight = 200;
@@ -105,6 +110,18 @@ function draw5() {
   };
 
 };
+function draw7() {
+  ctx7.clearRect(0, 0, canvas7.width, canvas7.height);
+  drawBackgroundImgSeven();
+
+  // if(rightPressed && imgFive < 50) {
+  //   imgFive += 1.55;
+  // }
+  // else if(leftPressed && imgFive > -98) {
+  //   imgFive -= 1.55;
+  // };
+
+};
 
 
 
@@ -127,6 +144,9 @@ function drawBackgroundImgFour() {
 function drawBackgroundImgFive() {
   ctx5.drawImage(img5, imgFive -160, -200, 1200, 1000);
 
+}
+function drawBackgroundImgSeven() {
+  ctx7.drawImage(img7, 0, 0)
 }
 
 
@@ -164,6 +184,7 @@ function drawAll() {
   draw3();
   draw4();
   draw5();
+  draw7();
   // drawA();
 
 }

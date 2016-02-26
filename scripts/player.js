@@ -7,7 +7,7 @@ var canvas = ctx.getContext("2d");
 var imgPlayer = document.createElement('img');
 imgPlayer.src='media/img/POMhero.png'
 
-var heroHealth = 30;
+var heroHealth = 100;
 var score = 0;
 // var imgBg;
 // var imgDrops;
@@ -33,10 +33,14 @@ function drawBallz() {
     for (var i=0; i< noOfDrops; i++) {
       ctx4.drawImage (fallingDrops[i].image, fallingDrops[i].ballX, fallingDrops[i].ballY, ballHeight, ballWidth); //The rain drop
       fallingDrops[i].ballY += fallingDrops[i].speed; //Set the falling speed
-      if (fallingDrops[i].ballY > 750 || fallingDrops[i].ballX < player.x + player.width  && fallingDrops[i].ballX + fallingDrops[i].width  > player.x &&
+      if (fallingDrops[i].ballX < player.x + player.width  && fallingDrops[i].ballX + fallingDrops[i].width  > player.x &&
     		fallingDrops[i].ballY < player.y + player.height && fallingDrops[i].ballY + fallingDrops[i].height > player.y) {  //Repeat the raindrop when it falls out of view
         fallingDrops[i].ballY = - 25 //Account for the image size
         fallingDrops[i].ballX = Math.random() * 1300;    //Make it appear randomly along the width
+      } else if (fallingDrops[i].ballY > 750) {
+        fallingDrops[i].ballY = - 25;
+        fallingDrops[i].ballX = Math.random() * 1300;
+        heroHealth -= 1;
       }
 
     }

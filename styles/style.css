@@ -3,7 +3,7 @@
   margin: 0;
 }*/
 body {
-  background-image: url('http://cdn.paper4pc.com/images/cool-ancient-wallpaper-1.jpg');
+  background-image: url('../media/img/POMpageBG.jpg');
 }
 canvas {
   display: block;

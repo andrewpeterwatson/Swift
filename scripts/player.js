@@ -17,6 +17,11 @@ var noOfDrops;
 var submitScore = document.getElementById('submitScore');
 
 
+function showHealth() {
+  var healthBox = document.getElementById('playerHealth');
+  healthBox.innerHTML = 'Health: ' + heroHealth;
+
+}
 
 function drawBallz() {
   ctx4.clearRect(0, 0, canvas4.width, canvas4.height);
@@ -39,6 +44,7 @@ function setup() {
           ctx4 = canvas4.getContext('2d');
 
   setInterval(drawBallz, 36);
+  setInterval(showHealth, 36);
 
   function FireBall() {
     this.height = ballHeight;
@@ -195,10 +201,10 @@ player.midpoint = function() {
   };
 };
 function inMovementGO() {
-  TweenMax.to('.gameOvers', 2, {left: 800})
+  TweenMax.to('.gameOvers', 1, {left: 800})
 };
 function outMovementGO() {
-  TweenMax.to('.gameOvers', 4, {left:-1600});
+  TweenMax.to('.gameOvers', 1, {left:-1600});
 
 }
 
@@ -255,7 +261,7 @@ function gameOver() {
         heroHealth -= 1;
         }
       }
-      if (heroHealth < 0) {
+      if (heroHealth <= 0) {
         fallingDrops = null;
         gameOver();
         noOfDrops = 0;

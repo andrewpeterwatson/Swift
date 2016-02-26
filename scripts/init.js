@@ -3,10 +3,10 @@ var mediumEl = document.getElementById('medium');
 var hardEl = document.getElementById('hard');
 
 function inMovement() {
-  TweenMax.to('.info', 2, {left: 800})
+  TweenMax.to('.info', 1, {left: 800})
 };
 function outMovement() {
-  TweenMax.to('.info', 4, {left:-1600});
+  TweenMax.to('.info', 1, {left:-1600});
 
 }
 
@@ -25,7 +25,7 @@ function easyBtnFunc() {
   noOfDrops = 25;
   start = false;
   starting();
-  setTimeout(setup, 3000);
+  setTimeout(setup, 1000);
   easyEl.disabled = true;
 }
 function medBtnFunc() {
@@ -35,7 +35,7 @@ function medBtnFunc() {
   start = false;
   starting();
   noOfDrops = 50;
-  setTimeout(setup, 3000);
+  setTimeout(setup, 1000);
   mediumEl.disabled = true;
 
 }
@@ -46,7 +46,7 @@ function hardBtnFunc() {
   start = false;
   starting();
   noOfDrops = 100;
-  setTimeout(setup, 3000);
+  setTimeout(setup, 1000);
   hardEl.disabled = true;
 
 }

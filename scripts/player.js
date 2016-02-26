@@ -12,7 +12,7 @@ var score = 0;
 // var imgBg;
 // var imgDrops;
 var ballHeight = 80;
-var ballWidth = 80;
+var ballWidth = 115;
 var ballX = 0;
 var ballY = 0;
 var fallingDrops = [];
@@ -55,7 +55,7 @@ function setup() {
     this.width = ballWidth;
     this.speed = Math.random() * 4;
     this.image = new Image();
-    this.image.src = 'http://m.img.brothersoft.com/android/fa/fa5e68c09084b2ebd7297d61df122bc9_icon.png';
+    this.image.src = 'media/img/POMfireBall.png';
   }
 
   for (var i = 0; i < noOfDrops; i++) {
@@ -122,8 +122,11 @@ document.addEventListener("keyup", keyUpHandler, false);
 function keyDownHandler(e) {
     if(e.keyCode === 39) {
         rightPressed = true;
+        imgPlayer.src='media/img/POMhero.png';
     } else if(e.keyCode === 37) {
         leftPressed = true;
+        imgPlayer.src='media/img/POMheroLeft.png';
+
     } else if(e.keyCode === 32) {
       spacePressed = true;
     }

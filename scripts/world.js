@@ -17,18 +17,18 @@ var ctx5 = canvas5.getContext("2d");
 // var ctx6 = canvas6.getContext("2d");
 
 var img1 = document.createElement('img');
-img1.src='media/img/mountainRange.png'
+img1.src='media/img/POMbgColumns.png'
 var img2 = document.createElement('img');
-img2.src='media/img/volcano.png'
+img2.src='media/img/POMvolcano.png'
 var img3 = document.createElement('img');
-img3.src='media/img/background.png'
+img3.src='media/img/POMbg.png'
 var img4 = document.createElement('img');
-img4.src='media/img/playerPlane.png'
+img4.src='media/img/POMgroundPlane.png'
 var img5 = document.createElement('img');
-img5.src='media/img/canyonWall.png'
+img5.src='media/img/POMfgColumns.png'
 
 var mountainHeight = 600;
-var groundHeight = 300;
+var groundHeight = 200;
 var skyHeight = 960;
 var imgWidth = 1300;
 var imgOne = 0;
@@ -57,11 +57,11 @@ function draw1() {
     ctx1.clearRect(0, 0, canvas1.width, canvas1.height);
     drawBackgroundImgOne();
 
-  if(rightPressed && imgOne < 100) {
-      imgOne += 1.75;
+  if(rightPressed && imgOne > -100) {
+      imgOne -= 0.50;
   }
-  else if(leftPressed && imgOne > -80) {
-      imgOne -= 1.75;
+  else if(leftPressed && imgOne < 80) {
+      imgOne += 0.50;
   };
 
 };
@@ -70,46 +70,38 @@ function draw2() {
   drawBackgroundImgTwo();
 
   if(rightPressed && imgTwo > -60) {
-    imgTwo -= 1.25;
+    imgTwo -= 0.75;
   }
   else if(leftPressed && imgTwo < 60) {
-    imgTwo += 1.25;
+    imgTwo += 0.75;
   };
 
 };
 function draw3() {
   ctx3.clearRect(0, 0, canvas3.width, canvas3.height);
   drawBackgroundImgThree();
-
-  if(rightPressed && imgThree < 100) {
-    imgThree += 1;
-  }
-  else if(leftPressed && imgThree > -100) {
-    imgThree -= 1;
-  };
-
 };
 function draw4() {
   ctx6.clearRect(0, 0, canvas6.width, canvas6.height);
   drawBackgroundImgFour();
 
-  if(rightPressed && imgFour < 100) {
-    imgFour += 1;
-  }
-  else if(leftPressed && imgFour > -100) {
-    imgFour -= 1;
-  };
+  // if(rightPressed && imgFour > -100) {
+  //   imgFour -= 1;
+  // }
+  // else if(leftPressed && imgFour < 100) {
+  //   imgFour += 1;
+  // };
 
 };
 function draw5() {
   ctx5.clearRect(0, 0, canvas5.width, canvas5.height);
   drawBackgroundImgFive();
 
-  if(rightPressed && imgFive < 98) {
-    imgFive += 2.15;
+  if(rightPressed && imgFive < 50) {
+    imgFive += 1.55;
   }
   else if(leftPressed && imgFive > -98) {
-    imgFive -= 2.15;
+    imgFive -= 1.55;
   };
 
 };
@@ -117,7 +109,7 @@ function draw5() {
 
 
 function drawBackgroundImgOne() {
-  ctx1.drawImage(img1,imgOne - 50, canvas1.height-350, imgWidth, groundHeight);
+  ctx1.drawImage(img1,imgOne - 50, -200, 1000, 1000);
 
 }
 function drawBackgroundImgTwo() {
@@ -125,15 +117,15 @@ function drawBackgroundImgTwo() {
 
 }
 function drawBackgroundImgThree() {
-  ctx3.drawImage(img3,imgThree -50, canvas3.height-skyHeight, imgWidth, skyHeight);
+  ctx3.drawImage(img3,imgThree -50, -200, 1000, 1000);
 
 }
 function drawBackgroundImgFour() {
-  ctx6.drawImage(img4,imgFour -50, canvas6.height-skyHeight, 1000, 1100);
+  ctx6.drawImage(img4,imgFour -50, canvas6.height-875, 1000, 1100);
 
 }
 function drawBackgroundImgFive() {
-  ctx5.drawImage(img5,imgFive - 100, canvas5.height-skyHeight, 1000, 1200);
+  ctx5.drawImage(img5, imgFive -160, -200, 1200, 1000);
 
 }
 

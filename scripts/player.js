@@ -17,6 +17,9 @@ var ballX = 0;
 var ballY = 0;
 var fallingDrops = [];
 var noOfDrops;
+var highScore = [0];
+var endScore = 0;
+var playerRank = ["Ranking: The Shame of Pompeii", "Ranking: Pompeii Hopeful", "Ranking: Defender of Pompeii"];
 var submitScore = document.getElementById('submitScore');
 
 
@@ -228,18 +231,31 @@ function gameOverBtn() {
 }
 submitScore.addEventListener('click', gameOverBtn);
 
-
-
 function gameOver() {
   var gameOv = document.getElementById('score')
   var endMessage = document.createElement('p')
   var scoreNum = document.createElement('p')
-  gameOv.innerHTML = 'SCORE: ' + score;
+  var bestScore = document.getElementById('highScore');
+  if (score > 3000) {
+    endScore = score;
+    gameOv.innerHTML = "Score: " + score + "<br>" + playerRank[2];
+  } else if (score > 1000 && score < 2000) {
+    endScore = score;
+    gameOv.innerHTML = "Score: " + score + "<br>" + playerRank[1];
+  } else if (score < 1000) {
+    endScore = score;
+    gameOv.innerHTML = "Score: " + score + "<br>" + playerRank[0];
+  };
+
+  if (endScore > highScore[0]) {
+    highScore.unshift(endScore);
+    bestScore.innerHTML = "Current High Score: " + highScore[0];
+  };
+
   inMovementGO();
   easyEl.disabled = false;
   mediumEl.disabled = false;
   hardEl.disabled = false;
-
 };
 
 

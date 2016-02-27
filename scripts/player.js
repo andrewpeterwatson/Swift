@@ -98,8 +98,7 @@ function update() {
   textY += 1;
 }
 var player = {
-  color: "pink",
-  x: 400,
+   x: 400,
   y: 400,
   width: 80,
   height: 100,

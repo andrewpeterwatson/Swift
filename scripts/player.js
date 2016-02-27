@@ -149,9 +149,9 @@ function update() {
     if (pool < 5) {
     player.shoot();
     }
-  } else if (leftPressed && player.x > 75 ) {
+  } else if (leftPressed && player.x > 5 ) {
       player.x -= 9;
-    } else if (rightPressed && player.x < 758) {
+    } else if (rightPressed && player.x < 730) {
       player.x += 9;
     }
     score ++;
@@ -209,7 +209,7 @@ player.midpoint = function() {
   };
 };
 function inMovementGO() {
-  TweenMax.to('.gameOvers', 1, {left: 800})
+  TweenMax.to('.gameOvers', 1, {left: 1325})
 };
 function outMovementGO() {
   TweenMax.to('.gameOvers', 1, {left:-1600});
@@ -219,7 +219,7 @@ function outMovementGO() {
 function gameOverBtn() {
   event.preventDefault();
   score = 0;
-  heroHealth = 30;
+  heroHealth = 100;
   fallingDrops = [];
   outMovementGO();
   inMovement();

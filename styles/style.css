@@ -7,7 +7,7 @@ body {
 }
 canvas {
   display: block;
-  margin:88px 88px;
+  margin:167px 293px;
   position: absolute;
   padding: 0;
   box-shadow: 7px 7px 19px black;
@@ -15,7 +15,7 @@ canvas {
 
 }
 .mainBorder {
-    margin:88px 88px;
+    margin:-33px 88px;
 }
 /*img {
   visibility: hidden;
@@ -29,8 +29,8 @@ canvas {
   width: 400px;
   background-color: #363636;
   position: absolute;
-  margin-top:20%;
-  margin-left:-475px;
+  margin-top:22%;
+  margin-left:-800px;
   border: 2px solid black;
   color: white;
   font-size: 20px;
@@ -47,8 +47,8 @@ legend.button {
   width: 400px;
   background-color: #363636;
   position: absolute;
-  margin-top:10%;
-  margin-left:-600px;
+  margin-top:22%;
+  margin-left:-800px;
   border: 2px solid black;
   color: white;
   font-size: 20px;
@@ -68,7 +68,7 @@ legend.button {
 
 #logo {
   position: absolute;
-  left: 815px;
+  left: 1300px;
   width: 300px;
   border: 3px solid white;
   padding: 10px;
@@ -78,7 +78,7 @@ legend.button {
 #input {
   position: absolute;
   top: 300px;
-  left: 815px;
+  left: 1300px;
   width: 300px;
   border: 3px solid white;
   padding: 10px;
@@ -91,8 +91,8 @@ legend.button {
   width: 400px;
   background-color: #363636;
   position: absolute;
-  margin-top:10%;
-  margin-left:-600px;
+  margin-top:22%;
+  margin-left:-800px;
   border: 2px solid black;
   color: white;
   font-size: 20px;
@@ -100,7 +100,7 @@ legend.button {
 #healthBox {
   position: absolute;
   top: 500px;
-  left: 815px;
+  left: 1300px;
   width: 300px;
   border: 3px solid white;
   padding: 10px;

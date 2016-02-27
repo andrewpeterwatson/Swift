@@ -111,10 +111,8 @@ var player = {
 function draw() {
   canvas.clearRect(0, 0, 1000, 750);
   player.draw();
-  playerBullets.forEach(function(bullet) {
-  bullet.draw();
-});
-}
+};
+
 var rightPressed = false;
 var leftPressed = false;
 var spacePressed = false;
@@ -128,9 +126,6 @@ function keyDownHandler(e) {
     } else if(e.keyCode === 37) {
         leftPressed = true;
         imgPlayer.src='media/img/POMheroLeft.png';
-
-    } else if(e.keyCode === 32) {
-      spacePressed = true;
     }
 }
 function keyUpHandler(e) {

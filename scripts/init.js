@@ -3,7 +3,7 @@ var mediumEl = document.getElementById('medium');
 var hardEl = document.getElementById('hard');
 
 function inMovement() {
-  TweenMax.to('.info', 1, {left: 800})
+  TweenMax.to('.info', 1, {left: 1325})
 };
 function outMovement() {
   TweenMax.to('.info', 1, {left:-1600});
@@ -22,7 +22,7 @@ function easyBtnFunc() {
   event.preventDefault();
   // eventRemover();
   outMovement();
-  noOfDrops = 25;
+  noOfDrops = 15;
   start = false;
   starting();
   setTimeout(setup, 1000);
@@ -34,7 +34,7 @@ function medBtnFunc() {
   outMovement();
   start = false;
   starting();
-  noOfDrops = 50;
+  noOfDrops = 25;
   setTimeout(setup, 1000);
   mediumEl.disabled = true;
 
@@ -45,7 +45,7 @@ function hardBtnFunc() {
   outMovement();
   start = false;
   starting();
-  noOfDrops = 100;
+  noOfDrops = 50;
   setTimeout(setup, 1000);
   hardEl.disabled = true;
 

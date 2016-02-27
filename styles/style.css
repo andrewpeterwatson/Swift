@@ -4,6 +4,7 @@
 }*/
 body {
   background-image: url('../media/img/POMpageBG.jpg');
+  font-family: 'Cinzel', serif;
 }
 canvas {
   display: block;

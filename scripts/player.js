@@ -125,9 +125,11 @@ document.addEventListener("keyup", keyUpHandler, false);
 
 function keyDownHandler(e) {
     if(e.keyCode === 39) {
+      e.preventDefault();
         rightPressed = true;
         imgPlayer.src='media/img/POMhero.png';
     } else if(e.keyCode === 37) {
+      e.preventDefault();
         leftPressed = true;
         imgPlayer.src='media/img/POMheroLeft.png';
     }

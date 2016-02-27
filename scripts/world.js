@@ -62,10 +62,10 @@ function draw1() {
     ctx1.clearRect(0, 0, canvas1.width, canvas1.height);
     drawBackgroundImgOne();
 
-  if(rightPressed && imgOne > -100) {
+  if(rightPressed && player.x < 730) {
       imgOne -= 0.50;
   }
-  else if(leftPressed && imgOne < 80) {
+  else if(leftPressed && player.x > 5) {
       imgOne += 0.50;
   };
 
@@ -74,10 +74,10 @@ function draw2() {
   ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
   drawBackgroundImgTwo();
 
-  if(rightPressed && imgTwo > -60) {
+  if(rightPressed && player.x < 730) {
     imgTwo -= 0.75;
   }
-  else if(leftPressed && imgTwo < 60) {
+  else if(leftPressed && player.x > 5) {
     imgTwo += 0.75;
   };
 
@@ -102,11 +102,11 @@ function draw5() {
   ctx5.clearRect(0, 0, canvas5.width, canvas5.height);
   drawBackgroundImgFive();
 
-  if(rightPressed && imgFive < 50) {
-    imgFive += 1.55;
-  }
-  else if(leftPressed && imgFive > -98) {
+  if(leftPressed && player.x > 5) {
     imgFive -= 1.55;
+  }
+  else if(rightPressed && player.x < 730) {
+    imgFive += 1.55;
   };
 
 };

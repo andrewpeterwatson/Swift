@@ -39,8 +39,9 @@ function drawBallz() {
       if (fallingDrops[i].ballX < player.x + player.width  && fallingDrops[i].ballX + fallingDrops[i].width  > player.x &&
     		fallingDrops[i].ballY < player.y + player.height && fallingDrops[i].ballY + fallingDrops[i].height > player.y) {  //Repeat the raindrop when it falls out of view
         fallingDrops[i].ballY = - 25 //Account for the image size
+        score += 10;
         fallingDrops[i].ballX = Math.random() * 1300;    //Make it appear randomly along the width
-      } else if (fallingDrops[i].ballY > 750) {
+      } else if (fallingDrops[i].ballY > 400) {
         fallingDrops[i].ballY = - 25;
         fallingDrops[i].ballX = Math.random() * 1300;
         heroHealth -= 1;
@@ -69,7 +70,7 @@ function setup() {
       var fallingDr = new FireBall();
       // fallingDr["image"] =  new Image();
 
-      fallingDr["ballX"] = Math.random() * 1300;
+      fallingDr["ballX"] = Math.random() * 1000;
       fallingDr["ballY"] = - 1000;
       // fallingDr["speed"] = Math.random() * 9;
       fallingDrops.push(fallingDr);
@@ -87,6 +88,7 @@ function starting() {
     setInterval(function() {
       update();
       draw();
+      difficulty();
     }, 1000/FPS);
 
 };
@@ -153,9 +155,9 @@ function update() {
     player.shoot();
     }
   } else if (leftPressed && player.x > 5 ) {
-      player.x -= 9;
+      player.x -= 25;
     } else if (rightPressed && player.x < 730) {
-      player.x += 9;
+      player.x += 25;
     }
     score ++;
     checkBulletCollision();
@@ -230,6 +232,22 @@ function gameOverBtn() {
 
 
 }
+
+function difficulty() {
+  if (score === 900 && score < 1000) {
+    noOfDrops += 3;
+    console.log("Difficulty Increased")
+    setup();
+  } else if (score === 1800  &&  score < 2000) {
+    noOfDrops += 3;
+    console.log("Difficulty Increased")
+    setup();
+  } else if (score === 2400 && score < 2500) {
+    noOfDrops += 3;
+    console.log("Difficulty Increased")
+    setup();
+  }
+}
 submitScore.addEventListener('click', gameOverBtn);
 
 function gameOver() {
@@ -240,7 +258,7 @@ function gameOver() {
   if (score > 3000) {
     endScore = score;
     gameOv.innerHTML = "Score: " + score + "<br>" + playerRank[2];
-  } else if (score > 1000 && score < 2000) {
+  } else if (score > 1000 && score < 3000) {
     endScore = score;
     gameOv.innerHTML = "Score: " + score + "<br>" + playerRank[1];
   } else if (score < 1000) {

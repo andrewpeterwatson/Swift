@@ -56,7 +56,7 @@ var rightPressed = false;
 var leftPressed = false;
 
 
- 
+
 
 function draw1() {
     ctx1.clearRect(0, 0, canvas1.width, canvas1.height);

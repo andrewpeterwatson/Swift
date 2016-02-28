@@ -22,7 +22,7 @@ function easyBtnFunc() {
   event.preventDefault();
   // eventRemover();
   outMovement();
-  noOfDrops = 15;
+  noOfDrops = 5;
   start = false;
   starting();
   setTimeout(setup, 1000);

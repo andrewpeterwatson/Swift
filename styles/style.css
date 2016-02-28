@@ -69,7 +69,7 @@ legend.button {
 }
 
 
-#logo {
+#input {
   position: absolute;
   left: 1300px;
   width: 300px;
@@ -78,17 +78,6 @@ legend.button {
   color: white;
 }
 
-#input {
-  position: absolute;
-  top: 300px;
-  left: 1300px;
-  width: 300px;
-  border: 3px solid white;
-  padding: 10px;
-}
-#fire {
-  float: right;
-}
 #gameOvers {
   height: 300px;
   width: 400px;
@@ -107,11 +96,15 @@ legend.button {
   width: 300px;
   border: 3px solid white;
   padding: 10px;
-  background-color: red;
 }
 #playerHealth {
   font-size: 45px;
   color: white;
   margin: 0;
 
+}
+
+#healthDisplay {
+  height: 150px;
+  width: 150px;
 }

@@ -56,10 +56,10 @@ function drawBallz() {
     		fallingDrops[i].ballY < player.y + player.height && fallingDrops[i].ballY + fallingDrops[i].height > player.y) {  //Repeat the raindrop when it falls out of view
         fallingDrops[i].ballY = - 25 //Account for the image size
         score += 10;
-        fallingDrops[i].ballX = Math.random() * 1300;    //Make it appear randomly along the width
+        fallingDrops[i].ballX = Math.random() * 700 + 15;    //Make it appear randomly along the width
       } else if (fallingDrops[i].ballY > 400) {
         fallingDrops[i].ballY = - 25;
-        fallingDrops[i].ballX = Math.random() * 1300;
+        fallingDrops[i].ballX = Math.random() * 700 + 15;
         heroHealth -= 1;
       }
 
@@ -86,7 +86,7 @@ function setup() {
       var fallingDr = new FireBall();
       // fallingDr["image"] =  new Image();
 
-      fallingDr["ballX"] = Math.random() * 1000;
+      fallingDr["ballX"] = Math.random() * 700 + 15;
       fallingDr["ballY"] = - 1000;
       // fallingDr["speed"] = Math.random() * 9;
       fallingDrops.push(fallingDr);

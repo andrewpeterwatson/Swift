@@ -15,16 +15,7 @@ canvas {
 }
 #easy {
   font-family: 'Cinzel', serif;
-  height: 2em;
-  width: 5em;
-  font-size: 3em;
-  font-style: italic;
-  color: black;
-  background-color: #B8B8B8;
-  border: 7px solid black;
-  border-radius: 40px;
-  margin-left: -736px;
-  margin-top: 700px;
+
 }
 .mainBorder {
     margin:-33px 88px;
@@ -79,9 +70,11 @@ legend.button {
 
 
 #input {
+  font-size: 20px;
   position: absolute;
   left: 1300px;
   width: 300px;
+  height: 885px;
   border: 3px solid white;
   padding: 10px;
   color: white;
@@ -107,13 +100,25 @@ legend.button {
   padding: 10px;
 }
 #playerHealth {
+  position: absolute;
+  top: 850px;
   font-size: 45px;
   color: white;
   margin: 0;
+  font-size: 50px;
 
 }
 
 #healthDisplay {
-  height: 150px;
-  width: 150px;
+  position: absolute;
+  top: 550px;
+  left: 30px;
+  height: 250px;
+  width: 250px;
+}
+
+#arrows {
+  position: absolute;
+  top: 430px;
+  left: 40px;
 }

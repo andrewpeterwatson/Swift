@@ -75,10 +75,10 @@ function draw2() {
   drawBackgroundImgTwo();
 
   if(rightPressed && player.x < 730) {
-    imgTwo -= 0.75;
+    imgTwo -= 0.95;
   }
   else if(leftPressed && player.x > 5) {
-    imgTwo += 0.75;
+    imgTwo += 0.95;
   };
 
 };
@@ -142,7 +142,7 @@ function drawBackgroundImgFour() {
 
 }
 function drawBackgroundImgFive() {
-  ctx5.drawImage(img5, imgFive -160, -200, 1200, 1000);
+  ctx5.drawImage(img5, imgFive -160, -250, 1200, 1000);
 
 }
 function drawBackgroundImgSeven() {

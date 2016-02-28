@@ -17,5 +17,4 @@ function checkKey(e) {
 
 function restoreImage() {
   document.getElementById("arrows").src="media/testImg/up.jpg";
-  document.getElementById("fire").src="media/testImg/bomb.jpg";
 };

@@ -1,7 +1,4 @@
-/** {
-  padding: 0;
-  margin: 0;
-}*/
+
 body {
   background-image: url('../media/img/POMpageBG.jpg');
   font-family: 'Cinzel', serif;
@@ -25,6 +22,32 @@ canvas {
   border-radius: 40px;
   margin-left: -736px;
   margin-top: 700px;
+}
+#submitScore {
+  font-family: 'Cinzel', serif;
+  height: 3em;
+  width: 6em;
+  font-size: 1em;
+  line-height: 19px;
+  font-style: italic;
+  color: black;
+  background-color: #B8B8B8;
+  border: 2px solid black;
+  border-radius: 40px;
+  margin-left: 107px;
+  box-shadow: 1px 2px 25px 2px black;
+}
+#score {
+  margin-left: -18px;
+    text-align: center;
+}
+#pGameOver {
+  margin-left: 56px;
+  font-size: 2em;
+  line-height: 5px;
+}
+#highScore {
+  text-align: center;
 }
 .mainBorder {
     margin:-33px 88px;
@@ -89,10 +112,11 @@ legend.button {
 
 #gameOvers {
   height: 300px;
-  width: 400px;
-  background-color: #363636;
+  width: 358px;
+  background-color: grey;
+  border-radius: 50px;
   position: absolute;
-  margin-top:22%;
+  margin-top:17%;
   margin-left:-800px;
   border: 2px solid black;
   color: white;

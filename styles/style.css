@@ -12,7 +12,9 @@ canvas {
   position: absolute;
   padding: 0;
   box-shadow: 7px 7px 19px black;
-
+}
+#easy {
+  font-family: 'Cinzel', serif;
 
 }
 .mainBorder {
@@ -30,13 +32,8 @@ canvas {
   width: 400px;
   background-color: #363636;
   position: absolute;
-<<<<<<< HEAD
-  margin-top:22%;
-  margin-left:-800px;
-=======
   margin-top:150px;
   margin-left:-1000px;
->>>>>>> a21cf7c9ed8ef13efa998472c36fc3b1ae2c7d64
   border: 2px solid black;
   color: white;
   font-size: 20px;

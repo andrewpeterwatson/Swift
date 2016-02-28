@@ -16,7 +16,7 @@ function Dot() {
             this.y += this.speedY;
 
             ctxBall.beginPath();
-            ctxBall.arc(this.x, this.y, 5, 5, Math.PI * 2);
+            ctxBall.arc(this.x, this.y, 6, 5, Math.PI * 2);
             ctxBall.fillStyle = 'orange';
             ctxBall.fill();
             ctxBall.closePath();
@@ -38,7 +38,7 @@ function Dot2() {
             this.y += this.speedY;
 
             ctxBall.beginPath();
-            ctxBall.arc(this.x, this.y, 4, 5, Math.PI * 2);
+            ctxBall.arc(this.x, this.y, 6, 5, Math.PI * 2);
             ctxBall.fillStyle = 'red';
             ctxBall.fill();
             ctxBall.closePath();

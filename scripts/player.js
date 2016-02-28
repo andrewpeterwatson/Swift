@@ -126,17 +126,18 @@ document.addEventListener("keyup", keyUpHandler, false);
 function keyDownHandler(e) {
     if(e.keyCode === 39) {
       e.preventDefault();
-        rightPressed = true;
-        imgPlayer.src='media/img/POMhero.png';
+      rightPressed = true;
+      imgPlayer.src='media/img/POMhero.png';
     } else if(e.keyCode === 37) {
       e.preventDefault();
-        leftPressed = true;
-        imgPlayer.src='media/img/POMheroLeft.png';
+      leftPressed = true;
+      imgPlayer.src='media/img/POMheroLeft.png';
     }
 }
 function keyUpHandler(e) {
     if(e.keyCode === 39) {
-        rightPressed = false;
+      e.preventDefault();
+      rightPressed = false;
     } else if(e.keyCode === 37) {
         leftPressed = false;
     } else if(e.keyCode === 32) {

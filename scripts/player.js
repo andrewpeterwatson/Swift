@@ -9,8 +9,6 @@ imgPlayer.src='media/img/POMhero.png'
 
 var heroHealth = 100;
 var score = 0;
-// var imgBg;
-// var imgDrops;
 var ballHeight = 80;
 var ballWidth = 115;
 var ballX = 0;
@@ -55,7 +53,7 @@ function drawBallz() {
       if (fallingDrops[i].ballX < player.x + player.width  && fallingDrops[i].ballX + fallingDrops[i].width  > player.x &&
     		fallingDrops[i].ballY < player.y + player.height && fallingDrops[i].ballY + fallingDrops[i].height > player.y) {  //Repeat the raindrop when it falls out of view
         fallingDrops[i].ballY = - 25 //Account for the image size
-        score += 10;
+        score += 1;
         fallingDrops[i].ballX = Math.random() * 700 + 15;    //Make it appear randomly along the width
       } else if (fallingDrops[i].ballY > 400) {
         fallingDrops[i].ballY = - 25;
@@ -84,11 +82,8 @@ function setup() {
 
   for (var i = 0; i < noOfDrops; i++) {
       var fallingDr = new FireBall();
-      // fallingDr["image"] =  new Image();
-
       fallingDr["ballX"] = Math.random() * 700 + 15;
       fallingDr["ballY"] = - 1000;
-      // fallingDr["speed"] = Math.random() * 9;
       fallingDrops.push(fallingDr);
       }
 
@@ -96,7 +91,6 @@ function setup() {
 }
 setup();
 
-var start = true;
 
 var FPS = 30;
 
@@ -108,9 +102,6 @@ function starting() {
     }, 1000/FPS);
 
 };
-
-function update() {}
-function draw() {}
 
 var textX = 50;
 var textY = 50;
@@ -158,70 +149,21 @@ function keyUpHandler(e) {
       rightPressed = false;
     } else if(e.keyCode === 37) {
         leftPressed = false;
-    } else if(e.keyCode === 32) {
-      spacePressed = false;
+
 
     }
 
 }
-var pool = 0;
 function update() {
-  if (spacePressed) {
-    if (pool < 5) {
-    player.shoot();
-    }
-  } else if (leftPressed && player.x > 5 ) {
+      if (leftPressed && player.x > 5 ) {
       player.x -= 25;
     } else if (rightPressed && player.x < 730) {
       player.x += 25;
     }
     score ++;
-    checkBulletCollision();
     checkCollisions();
-    playerBullets.forEach(function(bullet) {
-    bullet.update();
-  });
 }
-var playerBullets = [];
-function Bullet(I) {
-  I.active = true;
-  I.xVelocity = 0;
-  I.yVelocity = -I.speed;
-  I.width = 3;
-  I.height = 3;
-  I.color = "black";
-  I.inBounds = function() {
-    return I.x >= 0 && I.x <= 1000 &&
-      I.y >= 0 && I.y <= 750;
-  };
 
-  I.draw = function() {
-    canvas.fillStyle = this.color;
-    canvas.fillRect(this.x, this.y, this.width, this.height);
-  };
-
-  I.update = function() {
-    I.x += I.xVelocity;
-    I.y += I.yVelocity;
-    I.active = I.active && I.inBounds();
-    if (!I.active) {
-      pool = 0;
-      playerBullets = [];
-    } else {
-      pool++;
-    }
-  };
-
-  return I;
-}
-player.shoot = function() {
-  var bulletPosition = this.midpoint();
-  playerBullets.push(Bullet({
-    speed: 10,
-    x: bulletPosition.x,
-    y: bulletPosition.y
-  }));
-};
 
 player.midpoint = function() {
   return {
@@ -238,15 +180,7 @@ function outMovementGO() {
 }
 
 function gameOverBtn() {
-  event.preventDefault();
-  score = 0;
-  heroHealth = 100;
-  fallingDrops = [];
-  outMovementGO();
-  inMovement();
-  // starting();
-
-
+  window.location.reload()
 }
 
 function difficulty() {
@@ -293,36 +227,15 @@ function gameOver() {
   hardEl.disabled = false;
 };
 
-
-  playerBullets = playerBullets.filter(function(bullet) {
-    return bullet.active;
-  });
-  function checkBulletCollision() {
-  // function collisionDetection(object1,obeject2) {
-  //   return (object1.x < object2.x + object2.width  && object1.x + object1.width  > object2.x &&
-	// 	object1.y < object2.y + object2.height && object1.y + object1.height > object2.y)
-  // }
-    for (var i = 0; i < playerBullets.length; i++) {
-        for (var i = 0; i < fallingDrops.length; i++) {
-          if (playerBullets[i].y < fallingDrops[i].y + fallingDrops[i].height && playerBullets[i].y + playerBullets[i].height > fallingDrops[i].y)
-            {
-              console.log("lava dead");
-        };
-      };
-    };
-  }
     function checkCollisions() {
     for (var i = 0; i < fallingDrops.length; i++) {
       if (fallingDrops[i].ballX < player.x + player.width  && fallingDrops[i].ballX + fallingDrops[i].width  > player.x &&
     		fallingDrops[i].ballY < player.y + player.height && fallingDrops[i].ballY + fallingDrops[i].height > player.y) {
-        console.log("player died");
-        // heroHealth -= 1;
         }
       }
       if (heroHealth <= 0) {
         fallingDrops = null;
         gameOver();
         noOfDrops = 0;
-        // player.explode();
       }
     }

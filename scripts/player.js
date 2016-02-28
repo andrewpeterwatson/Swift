@@ -21,6 +21,22 @@ var highScore = [0];
 var endScore = 0;
 var playerRank = ["Ranking: The Shame of Pompeii", "Ranking: Pompeii Hopeful", "Ranking: Defender of Pompeii"];
 var submitScore = document.getElementById('submitScore');
+var healthDisplay = document.getElementById('healthDisplay');
+
+function checkHealth () {
+
+if (heroHealth > 75) {
+        healthDisplay.src = 'media/img/POMhealth1.png';
+      } else if (heroHealth < 75 && heroHealth > 30){
+        healthDisplay.src = 'media/img/POMhealth2.png';
+      } else if (heroHealth < 30 && heroHealth > 0){
+        healthDisplay.src = 'media/img/POMhealth3.png';
+      } else if (heroHealth == 0) {
+        healthDisplay.src = 'media/img/POMhealth4.png';
+      };
+};
+
+setInterval(checkHealth, 10);
 
 
 function showHealth() {
@@ -129,7 +145,7 @@ function keyDownHandler(e) {
       rightPressed = true;
       imgPlayer.src='media/img/POMhero.png';
     } else if(e.keyCode === 37) {
-      e.preventDefault();  
+      e.preventDefault();
       leftPressed = true;
       imgPlayer.src='media/img/POMheroLeft.png';
     }
